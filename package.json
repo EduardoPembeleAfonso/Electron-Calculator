@@ -1,0 +1,22 @@
+{
+  "name": "electron-calculator",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "calculator",
+    "start",
+    "demo"
+  ],
+  "author": "Eduardo P. Afonso",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.1.1",
+    "electron": "^24.1.2"
+  }
+}

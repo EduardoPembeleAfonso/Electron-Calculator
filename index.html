@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="src/css/index.css" />
+
+    <script>
+      window.$ = window.jQuery = require("jquery");
+      const { ipcRenderer } = require("electron");
+      const closeApp = document.getElementById("closeBtn");
+      closeApp.addEventListener("click", () => {
+        ipcRenderer.send("close-me");
+      });
+    </script>
+    <script src="src/functions/funcoesCalculadora.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="">
+        <button id="closeBtn" class="closeBtn">X</button>
+
+        <div class="calculadora">
+          <div>
+            <div class="container-result">
+              <sup class="value-sup"></sup>
+              <p
+                class="texto-conta text-right align-middle"
+                id="value-calculator"
+              ></p>
+            </div>
+            <div class="calculator-box">
+              <div class="buttons-options-header">
+                <button
+                  class="btn-buttons-options-header"
+                  onclick="delConta2()"
+                >
+                  CE
+                </button>
+                <button class="btn-buttons-options-header" onclick="delConta()">
+                  c
+                </button>
+                <button class="btn-buttons-options-header" onclick="delConta()">
+                  del
+                </button>
+                <button
+                  class="btn-buttons-options-header"
+                  onclick="digitarOp('/')"
+                >
+                  /
+                </button>
+                <button
+                  class="btn-buttons-options-header"
+                  onclick="getRandom()"
+                >
+                  Rand
+                </button>
+                <button class="btn-buttons-options-header" onclick="getAbs()">
+                  Abs
+                </button>
+                <button class="btn-buttons-options-header" onclick="getSin()">
+                  Sin
+                </button>
+              </div>
+
+              <div class="container-number-and-operations">
+                <div class="container-operations">
+                  <div class="container-other-operations">
+                    <div class="container-other-options-operation">
+                      <button class="btn" onclick="getCos()">Cos</button>
+                      <button class="btn" onclick="getTan()">Tan</button>
+                      <button
+                        class="btn"
+                        value="%"
+                        id="/100"
+                        onclick="getPercent(this.id)"
+                      >
+                        %
+                      </button>
+                    </div>
+                    <div class="container-other-options-operation">
+                      <button class="btn" onclick="getCeil()">Ceil</button>
+                      <button class="btn" onclick="getLog()">Log</button>
+                      <button class="btn" onclick="getCbrt()">v~3</button>
+                    </div>
+                    <div class="container-other-options-operation">
+                      <button class="btn" onclick="getSin()">Sin</button>
+                      <button
+                        class="btn"
+                        id="3.141592653589793"
+                        name="sqrt"
+                        value="&Pi;"
+                        onclick="getPi(this.id)"
+                      >
+                        PI
+                      </button>
+                      <button class="btn" onclick="getEuler">E</button>
+                    </div>
+
+                    <div class="container-other-options-operation">
+                      <button
+                        class="btn"
+                        value="("
+                        onclick="digitarOp(this.value)"
+                      >
+                        (
+                      </button>
+                      <button
+                        class="btn"
+                        value=")"
+                        onclick="digitarOp(this.value)"
+                      >
+                        )
+                      </button>
+                      <button
+                        class="btn"
+                        id="SQRT"
+                        name="sqrt"
+                        value="&Sqrt;"
+                        onclick="getSqrt()"
+                      >
+                        v~
+                      </button>
+                    </div>
+                  </div>
+                  <div class="container-options-operations">
+                    <button class="btn" onclick="digitarOp('*')">X</button>
+                    <button class="btn" onclick="digitarOp('-')">-</button>
+                    <button class="btn" onclick="digitarOp('+')">+</button>
+                    <button class="btn" onclick="getByTwo()">X2</button>
+                  </div>
+                </div>
+                <div class="container-options-numbers">
+                  <div class="row">
+                    <button class="btn btn-num" onclick="digitarNum(7)">
+                      7
+                    </button>
+                    <button class="btn btn-num" onclick="digitarNum(8)">
+                      8
+                    </button>
+                    <button class="btn btn-num" onclick="digitarNum(9)">
+                      9
+                    </button>
+                  </div>
+                  <div class="row">
+                    <button class="btn btn-num" onclick="digitarNum(4)">
+                      4
+                    </button>
+                    <button class="btn btn-num" onclick="digitarNum(5)">
+                      5
+                    </button>
+                    <button class="btn btn-num" onclick="digitarNum(6)">
+                      6
+                    </button>
+                  </div>
+                  <div class="row">
+                    <button class="btn btn-num" onclick="digitarNum(1)">
+                      1
+                    </button>
+                    <button class="btn btn-num" onclick="digitarNum(2)">
+                      2
+                    </button>
+                    <button class="btn btn-num" onclick="digitarNum(3)">
+                      3
+                    </button>
+                  </div>
+                  <div class="row">
+                    <button class="btn" onclick="digitarNum('.')">.</button>
+                    <button class="btn btn-num" onclick="digitarNum(0)">
+                      0
+                    </button>
+                    <button
+                      class="btn-equals"
+                      id="equals"
+                      onclick="mostraResultado()"
+                    >
+                      =
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // You can also require other files to run in this process
+      require("./renderer.js");
+    </script>
+  </body>
+</html>
