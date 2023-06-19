@@ -16,7 +16,7 @@
   "author": "Eduardo P. Afonso",
   "license": "CC0-1.0",
   "devDependencies": {
-    "@electron-forge/cli": "^6.1.1",
+    "@electron-forge/cli": "^6.2.1",
     "electron": "^24.1.2"
   }
 }
